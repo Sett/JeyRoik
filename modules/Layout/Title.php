@@ -21,7 +21,8 @@ trait Layout_Title
 
     /**
      * Set layout title and "title separator"
-     * @event 'pre dispatch'
+     * @onEvent pre dispatch
+     * @context request uri
      */
     public function setLayoutTitle()
     {
