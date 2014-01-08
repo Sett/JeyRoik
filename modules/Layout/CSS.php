@@ -20,7 +20,8 @@ trait Layout_CSS
 
     /**
      * Set general CSS
-     * @event 'pre dispatch'
+     * @onEvent pre dispatch
+     * @context uri path
      */
     public function setGeneralCss()
     {
