@@ -37,4 +37,13 @@ trait View
 
         return $this->view;
     }
+    
+    /**
+     * @param $view
+     * @param string $context
+     */
+    public function render($view, $context = '')
+    {
+        is_file($view) ? require $view : '';
+    }
 }
