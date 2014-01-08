@@ -15,7 +15,8 @@ trait Layout_JS
 
     /**
      * Set general JS
-     * @event 'pre dispatch'
+     * @onEvent pre dispatch
+     * @context uri path
      */
     public function setGeneralJs()
     {
