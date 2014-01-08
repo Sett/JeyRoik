@@ -38,7 +38,8 @@ trait Jeyroik_Error
     }
 
     /**
-     * @event 'the end'
+     * @onEvent the end
+     * @context no
      */
     public function dumpErrors()
     {
