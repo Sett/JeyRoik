@@ -39,7 +39,8 @@ trait Layout_Keywords
     }
 
     /**
-     * @event 'pre dispatch'
+     * @onEvent pre dispatch
+     * @context uri path
      */
     public function setGeneralKeyWords()
     {
