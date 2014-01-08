@@ -19,7 +19,8 @@ trait Layout_Breadcrumb
     }
 
     /**
-     * @event pre dispatch
+     * @onEvent pre dispatch
+     * @context uri path
      */
     public function setGeneralCrumbs()
     {
