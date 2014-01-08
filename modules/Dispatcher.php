@@ -6,7 +6,8 @@ trait Dispatcher
 {
     /**
      * @param string $path
-     * @event 'on load'
+     * @onEvent on load
+     * @context request uri
      */
     public function dispatch($path = '')
     {
