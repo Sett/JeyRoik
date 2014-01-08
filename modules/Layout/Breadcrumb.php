@@ -15,7 +15,7 @@ trait Layout_Breadcrumb
      */
     public function addCrumb($name = '', $link = '#')
     {
-        $this->crumbs .= '<li><a href="' . $link .'">' . $name . '</a> <span class="divider">/</span></li>';
+        $this->crumbs .= require $this->onLoad['paths']['layouts'] . 'crumb.phtml';
     }
 
     /**
@@ -28,13 +28,5 @@ trait Layout_Breadcrumb
             foreach($this->onLoad['layout']['breadcrumb'] as $name => $link)
                 $this->addCrumb($name, $link);
         }
-    }
-
-    /**
-     * @event post dispatch
-     */
-    public function prepareCrumbs()
-    {
-        $this->crumbs = '<ul class="breadcrumb">' . $this->crumbs . '</ul>';
     }
 }
