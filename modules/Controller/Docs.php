@@ -1,7 +1,15 @@
 <?php
-
+/**
+ * Class Controller_Docs
+ */
 trait Controller_Docs
 {
+    /**
+     * @onEvent docs/traits
+     * @context request params
+     * @param array $request
+     * @return array
+     */
     public function traitsInDocs($request = [])
     {
         $this->addLayoutTitle('Документация - Трейты');
@@ -11,6 +19,12 @@ trait Controller_Docs
         return $request;
     }
 
+    /**
+     * @onEvent docs/roles
+     * @context request params
+     * @param array $request
+     * @return array
+     */
     public function rolesInDocs($request = [])
     {
         $this->addLayoutTitle('Документация - Роли');
@@ -20,6 +34,12 @@ trait Controller_Docs
         return $request;
     }
 
+    /**
+     * @onEvent docs/events
+     * @context request params
+     * @param array $request
+     * @return array
+     */
     public function eventsInDocs($request = [])
     {
         $this->addLayoutTitle('Документация - События');
@@ -29,6 +49,12 @@ trait Controller_Docs
         return $request;
     }
 
+    /**
+     * @onEvent docs/extend
+     * @context request params
+     * @param array $request
+     * @return array
+     */
     public function extendInDocs($request = [])
     {
         $this->addLayoutTitle('Документация - Расширяемость');
@@ -38,6 +64,12 @@ trait Controller_Docs
         return $request;
     }
 
+    /**
+     * @onEvent docs/mvc
+     * @context request params
+     * @param array $request
+     * @return array
+     */
     public function mvcInDocs($request = [])
     {
         $this->addLayoutTitle('Документация - MVA');
