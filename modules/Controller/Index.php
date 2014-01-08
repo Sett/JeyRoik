@@ -7,7 +7,8 @@ trait Controller_Index
     /**
      * @param array $request
      * @return array
-     * @event 'index/index'
+     * @onEvent 'index/index'
+     * @context request params
      */
     public function indexInIndex($request = [])
     {
