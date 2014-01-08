@@ -69,7 +69,8 @@ trait Config_Data_OnLoad
                     "setGeneralCss",
                     "setGeneralJs",
                     "setGeneralKeywords",
-                    "setGeneralMeta"
+                    "setGeneralMeta",
+                    "setGeneralCrumbs"
                 ],
                 /**
                  * @group Dispatching
