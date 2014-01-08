@@ -10,6 +10,11 @@ trait Layout
     public $layout = '';
 
     /**
+     * @onEvent post dispatch
+     * @context [
+     *  'view' => viewName,
+     *  'data' => resultOf @group Controller/Action
+     * ]
      * @return mixed|string
      */
     public function setLayout()
