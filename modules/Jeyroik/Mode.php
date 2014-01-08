@@ -7,7 +7,8 @@
 trait Jeyroik_Mode
 {
     /**
-     *
+     * @onEvent the end
+     * @context no
      */
     public function modeAction()
     {
