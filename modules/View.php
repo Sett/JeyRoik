@@ -20,23 +20,15 @@ trait View
      */
     public function constructView($request = [])
     {
-        if(isset($request['view']))
-        {
-            $viewPath = __DIR__ . '/'
-                . $this->onLoad['paths']['views']
-                . $request['view'] . '.' . $this->onLoad['view']['extension'];
+        $viewPath = __DIR__ . '/'
+            . $this->onLoad['paths']['views']
+            . $this->view . '.' . $this->onLoad['view']['extension'];
 
-            if(file_exists($viewPath))
-                $this->view = $viewPath;
-            else
-            {
-                $this->addError('View is not found', $viewPath);
-                $this->view = false;
-            }
-        }
+        if(file_exists($viewPath))
+            $this->view = $viewPath;
         else
         {
-            $this->addError('Missed view in the request', $request);
+            $this->addError('View is not found', $viewPath);
             $this->view = false;
         }
 
