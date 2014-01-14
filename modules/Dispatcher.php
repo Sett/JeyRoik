@@ -5,6 +5,16 @@
 trait Dispatcher
 {
     /**
+     * @var string
+     */
+    public $controller = '';
+
+    /**
+     * @var string
+     */
+    public $action = '';
+    
+    /**
      * @param string $path
      * @onEvent on load
      * @context request uri
@@ -17,14 +27,15 @@ trait Dispatcher
 
         $request = isset($request[0]) ? $request[0] : [];// нашли чего-нибудь
 
-        $controller = (isset($request[0]) && $request[0]) ? $request[0] : 'index';
-        $action     = (isset($request[1]) && $request[1]) ? $request[1] : 'index';
+        $this->controller = (isset($request[0]) && $request[0]) ? $request[0] : 'index';
+        $this->action     = (isset($request[1]) && $request[1]) ? $request[1] : 'index';
+        
+        $this->view = $this->controller . '/' . $this->action;
 
-        $this->rise($controller . '/' . $action, $request)
+        $this->rise($this->controller . '/' . $this->action, $request)
              ->rise('post dispatch',
                     [
-                        'view' => $controller . '/' . $action,
-                        'data' => $this->getEventResult($controller . '/' . $action)
+                        'data' => $this->getEventResult($this->controller . '/' . $this->action)
                     ]);
     }
 }
