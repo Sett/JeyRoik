@@ -12,7 +12,6 @@ trait View
     /**
      * @onEvent post dispatch
      * @context [
-     *  'view' => viewName,
      *  'data' => resultOf @group Controller/Action
      * ]
      * @param array $request
