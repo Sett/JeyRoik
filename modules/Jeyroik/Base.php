@@ -24,4 +24,25 @@ trait Jeyroik_Base
         $this->request = $request;
         $this->rise('on load', $request)->rise('the end');
     }
+    
+    
+    /**
+     * @param string $name for sub-levels: <level>:<name>
+     * @return mixed
+     */
+    public function __get($name)
+    {
+        $parts = explode(':', $name);
+        $root = $this->onLoad;
+
+        foreach($parts as $part)
+        {
+            if(isset($root[$part]))
+                $root = $root[$part];
+            else
+                break;
+        }
+
+        return $root;
+    }
 }
