@@ -77,7 +77,6 @@ trait Config_Data_OnLoad
                  * @risingIn Dispatcher::dispatch()
                  * @context
                  * [
-                 *  'view' => viewName,
                  *  'data' => resultOf @group Controller/Action
                  * ]
                  */
