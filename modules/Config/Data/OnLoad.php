@@ -60,7 +60,7 @@ trait Config_Data_OnLoad
             "on load" => ["dispatch"],
                 /**
                  * @group Dispatching
-                 * @risingIn Dispathcer::dispatch()
+                 * @risingIn Dispatcher::dispatch()
                  * @context uri path
                  */
                 "pre dispatch"   =>
@@ -74,7 +74,7 @@ trait Config_Data_OnLoad
                 ],
                 /**
                  * @group Dispatching
-                 * @risingIn Dispathcer::dispatch()
+                 * @risingIn Dispatcher::dispatch()
                  * @context
                  * [
                  *  'view' => viewName,
@@ -91,7 +91,7 @@ trait Config_Data_OnLoad
 
             /**
              * @group Controller/Action
-             * @risingIn Dispathcer::dispatch()
+             * @risingIn Dispatcher::dispatch()
              * @context request params
              */
 
