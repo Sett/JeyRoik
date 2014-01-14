@@ -150,4 +150,16 @@ trait Config_Data_OnLoad
             ]
         ],
     ];
+    
+    /**
+     * Merge role config with the onLoad config
+     */
+    public function mergeOnLoad()
+    {
+        if(is_file('../application/configs/roles/' . __CLASS__ . '.php'))
+        {
+            $cfg = include '../application/configs/roles/' . __CLASS__ . '.php';
+            $this->onLoad = array_replace_recursive($this->onLoad, $cfg);
+        }
+    }
 }
