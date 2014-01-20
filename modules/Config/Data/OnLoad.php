@@ -21,8 +21,8 @@ trait Config_Data_OnLoad
             "extension" => 'phtml'
         ],
 
-        "layout" =>
-        [
+        "layout" =>// I think, some of this parameters should be stored somewhere else: db, json
+        [// because this data is often changing. Further I have marked parameters, that I think should store in the db
             "extension" => "phtml",
 
             "title"     => "Jeyroik",
@@ -30,11 +30,11 @@ trait Config_Data_OnLoad
 
             "css" => ["bootstrap"],// will be: bootstrap.css
             "js"  => ["bootstrap"],
-            "keywords" => ["фреймворк", "php"],
+            "keywords" => ["фреймворк", "php"],// mbiadb
             "meta" =>
             [
                 "viewport" => "width=device-width, initial-scale=1.0",
-                "description" => "PHP фреймворк, построенный на трейтах",
+                "description" => "PHP фреймворк, построенный на трейтах",// mbiadb
                 [
                     "http-equiv" => "content-type",
                     "content"    => "text/html; charset=utf-8"
@@ -156,7 +156,7 @@ trait Config_Data_OnLoad
      */
     public function mergeOnLoad()
     {
-        if(is_file('../application/configs/roles/' . __CLASS__ . '.php'))
+        if(is_file('../application/configs/roles/' . __CLASS__ . '.php'))// m.b. /configs/onload/<role>.json/php ?
         {
             $cfg = include '../application/configs/roles/' . __CLASS__ . '.php';
             $this->onLoad = array_replace_recursive($this->onLoad, $cfg);
