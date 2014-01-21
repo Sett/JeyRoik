@@ -131,37 +131,15 @@ trait Config_Data_OnLoad
             ]
         ],
 
-        "store" =>
-        [
-            "engine" => "db",
-
-            "file" =>
-            [
-                "name" => "records.json"
-            ],
-
-            "db" =>
-            [
-                "host" => "localhost",
-                "user" => "phpastra",
-                "password" => "phpastra",
-                "db name"  => "test-ocwebastra",
-                "table name" => "test_results"
-            ]
-        ],
-        
         'storage' => 
         [
             'system' => 
             [
-                'engine' => 'file',
-                'type'   => 'trait',
                 'path'   => '/modules/Config/Data/'
             ],
             
             'site' => 
             [
-                'engine' => 'file',
                 'type'   => 'json',
                 'path'   => '/application/configs/site/'
             ],
