@@ -19,9 +19,7 @@ trait Layout
      */
     public function setLayout()
     {
-        $layoutPath = __DIR__ . '/' . $this->onLoad['paths']['layouts'] .
-            'layout.' . $this->onLoad['layout']['extension'];
-
+        $layoutPath = __DIR__ . '/' . $this->{'paths:layouts'} . 'layout.' . $this->{'layout:extension'};
         $this->layout = is_file($layoutPath) ? include_once $layoutPath : 'content';
 
         return $this->layout;
