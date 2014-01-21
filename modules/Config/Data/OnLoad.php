@@ -149,6 +149,36 @@ trait Config_Data_OnLoad
                 "table name" => "test_results"
             ]
         ],
+        
+        'storage' => 
+        [
+            'system' => 
+            [
+                'engine' => 'file',
+                'type'   => 'trait',
+                'path'   => '/modules/Config/Data/'
+            ],
+            
+            'site' => 
+            [
+                'engine' => 'file',
+                'type'   => 'json',
+                'path'   => '/application/configs/site/'
+            ],
+            
+            'content' => 
+            [
+                'engine' => 'db',
+                'type'   => 'Mysql',
+                'path'   => 
+                [
+                    'db' => 'db_name',
+                    'host' => 'localhost',
+                    'user' => 'user_name',
+                    'password' => 'password'
+                ]
+            ]
+        ]
     ];
     
     /**
