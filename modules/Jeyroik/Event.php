@@ -47,8 +47,6 @@ trait Jeyroik_Event
                     $eventLog['listeners'][] = ['name' => $listener, 'missed' => true];
             }
         }
-        else
-            $this->eventResult[$name] = $context;
 
         $this->eventLog[] = $eventLog;
         return $this;
