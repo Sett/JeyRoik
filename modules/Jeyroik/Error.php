@@ -24,6 +24,9 @@ trait Jeyroik_Error
     {
         if(isset($this->errorLevel[$level]))
         {
+            if(method_exists($this, $level . 'Error'))// additional action by level
+                $this->{$level . 'Error'}($message, $context);
+            
             $errorHash = sha1($message . json_encode($context));
             $this->errors[$errorHash] = [
                 'message' => $message,
