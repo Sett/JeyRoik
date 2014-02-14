@@ -130,6 +130,14 @@ trait Config_Data_OnLoad
                 ]
             ]
         ],
+        
+        'error' => 
+        [
+            'fatal' => 
+            [
+                'mail' => ['to' => 'admin@domain']
+            ]
+        ],
 
         'storage' => 
         [
