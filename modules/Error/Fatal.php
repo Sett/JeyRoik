@@ -11,6 +11,6 @@ trait Error_Fatal
     public function fatalError($message = '', $context = [])
     {
         // send an email
-        mail ( $this->onLoad['error']['fatal']['mail']['to'], $message , json_encode($context));
+        mail($this->onLoad['error']['fatal']['mail']['to'], $message , json_encode($context));
     }
 }
