@@ -39,7 +39,8 @@ trait Config_Data_OnLoad
                     "http-equiv" => "content-type",
                     "content"    => "text/html; charset=utf-8"
                 ]
-            ]
+            ],
+            "disable" : []// disable layout for actions
         ],
 
         "talk" => "on",
