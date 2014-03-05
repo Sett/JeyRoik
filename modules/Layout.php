@@ -26,7 +26,7 @@ trait Layout
     }
 
     /**
-     *
+     * Return view
      */
     public function getViewContent()
     {
