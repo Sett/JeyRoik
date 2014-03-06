@@ -20,8 +20,8 @@ trait View
     public function constructView($request = [])
     {
         $viewPath = __DIR__ . '/'
-            . $this->onLoad['paths']['views']
-            . $this->view . '.' . $this->onLoad['view']['extension'];
+            . $this->{'paths:views'}
+            . $this->view . '.' . $this->{'view:extension'};
 
         if(file_exists($viewPath))
             $this->view = $viewPath;
