@@ -1,8 +1,4 @@
 <?php
-return
-    [
-        "traits" =>
-        [
-            "Controller_Guest"
-        ]
-    ];
+return [
+    "traits" => ["Controller_Guest"]
+];
