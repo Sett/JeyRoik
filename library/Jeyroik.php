@@ -5,6 +5,9 @@ require_once 'Jeyroik/Role.php';
  */
 class Jeyroik
 {
+    /**
+     * Role mechanizm
+     */
     use Jeyroik_Role;
 
     /**
@@ -203,6 +206,9 @@ class Jeyroik
         return (strpos($name, $from) !== false) ? str_replace($from, $to, $name) : $name;
     }
 
+    /**
+     * @param string $basePath
+     */
     public static function run($basePath = '')
     {
         $request = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '/';
