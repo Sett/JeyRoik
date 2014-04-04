@@ -14,7 +14,7 @@ trait Jeyroik_Mode
     {
         if($this->onLoad['system']['mode'] == 'debug')
         {
-            echo '<pre>';
+            echo __CLASS__ . '<pre>';
             print_r($this);
         }
     }
