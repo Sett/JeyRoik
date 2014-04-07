@@ -40,7 +40,7 @@ trait Config_Data_OnLoad
                     "content"    => "text/html; charset=utf-8"
                 ]
             ],
-            "disable" : []// disable layout for actions
+            "disable" => []// disable layout for actions
         ],
 
         "talk" => "on",
