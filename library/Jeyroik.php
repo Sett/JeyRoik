@@ -1,5 +1,6 @@
 <?php
 require_once 'Jeyroik/Role.php';
+require_once 'Jeyroik/Plugins.php';
 /**
  * Class Jeroik
  */
@@ -9,6 +10,11 @@ class Jeyroik
      * Role mechanizm
      */
     use Jeyroik_Role;
+    
+    /**
+     * Plugins mechanizm
+     */
+    use Jeyroik_Plugins;
 
     /**
      * @var string
@@ -42,6 +48,7 @@ class Jeyroik
     {
         $cfgPath       = __DIR__ . self::$cfgPath;
         $cfg           = self::getConfig($cfgPath . 'Core.php', $cfgPath . 'compile/' . $className . '.php');
+        $cfg           = self::usePlugins($cfg, __DIR__ . '/../');
         $traits        = self::getTraits($cfg);
         $traitBasePath = self::getPath('trait', $cfg);
         $classBasePath = self::getPath('class', $cfg);
@@ -92,23 +99,24 @@ class Jeyroik
 
         if(is_array($traits))
         {
-            $name      = self::getName($traits);
+            $traits = self::usePlugins($traits, __DIR__ . '/../');
+            $traitBasePath = self::getPath('traits', $traits, $traitBasePath);
+
             $subTraits = self::getTraits($traits);
             $require  .= self::getClasses($traits, $classBasePath);
 
             $out      = self::getOutTraits($traits);
             $use     .= $out['use'];
             $require .= $out['require'];
+            $count   = count($subTraits)-1;
 
-            foreach($subTraits as $trait)
+            foreach($subTraits as $index => $trait)
             {
-                $sub      = self::subTraits($trait, $traitBasePath . $name . '/');// send a parent in the path
-                $use     .= $name . '_' . $sub['use'] . ', ' . "\n\t\t";// Name_SubTrait,
+                $quot = ($count == $index) ? '' : ', ' . "\n\t\t";
+                $sub      = self::subTraits($trait, $traitBasePath);// send a parent in the path
+                $use     .= $sub['use'] . $quot;// Name_SubTrait,
                 $require .= $sub['require'];
             }
-
-            $use     .= $name ? $name : '';
-            $require .= $name ? "require_once '" . __DIR__ . '/../' . $traitBasePath . self::convertName($name) . ".php';\n" : '';
         }
         elseif(is_string($traits))
         {
@@ -120,33 +128,14 @@ class Jeyroik
     }
 
     /**
-     * @param array $data
-     * @return array
-     */
-    public static function getOutTraits($data)
-    {
-        $outTraits = isset($data['outTraits']) ? $data['outTraits'] : [];
-
-        $require = '';
-        $use = '';
-
-        foreach($outTraits as $trait => $path)
-        {
-            $require .= "require_once '" . __DIR__ . '/../' . $path . "';\n";
-            $use .= $trait . ', ' . "\n\t\t";
-        }
-
-        return ['use' => $use, 'require' => $require];
-    }
-
-    /**
      * @param string $what
      * @param array $cfg
+     * @param string #defaultPath
      * @return string
      */
-    public static function getPath($what = '' , array $cfg)
+    public static function getPath($what = '' , array $cfg = [], $defaultPath = '')
     {
-        return isset($cfg['path'][$what]) ? $cfg['path'][$what] : '';
+        return isset($cfg['path'][$what]) ? $cfg['path'][$what] : $defaultPath;
     }
 
     /**
