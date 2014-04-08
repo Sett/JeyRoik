@@ -105,9 +105,6 @@ class Jeyroik
             $subTraits = self::getTraits($traits);
             $require  .= self::getClasses($traits, $classBasePath);
 
-            $out      = self::getOutTraits($traits);
-            $use     .= $out['use'];
-            $require .= $out['require'];
             $count   = count($subTraits)-1;
 
             foreach($subTraits as $index => $trait)
