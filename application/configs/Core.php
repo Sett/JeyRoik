@@ -14,8 +14,12 @@ return
             "Jeyroik_Event",
             "Jeyroik_Mode",
             "View",
+            "Layout",
             [
-                "name" => "Layout",
+                "plugins" =>
+                [
+                    "library/Jeyroik/Plugins/prefix.php" => "Layout",
+                ],
 
                 "traits" =>
                 [
@@ -28,7 +32,18 @@ return
             ],
             "Dispatcher",
             "Config_Data_OnLoad",// load config for tp
-            "Controller_Index",
-            "Controller_Docs"
+            [
+                "plugins" => 
+                [
+                    "library/Jeyroik/Plugins/prefix.php" => "Controller",
+                    "library/Jeyroik/Plugins/traitPath.php" => "application/"
+                ],
+                
+                "traits" => 
+                [
+                    "Index",
+                    "Docs"
+                ]
+            ]
         ]
     ];
