@@ -1,4 +1,10 @@
 <?php
 return [
-    "traits" => ["Controller_Guest"]
+    "traits" => 
+    [
+        [
+            "plugins" => ["library/Jeyroik/Plugins/traitPath.php" => "application/"],
+            "traits" => ["Controller_Guest"]
+        ]
+    ]
 ];
