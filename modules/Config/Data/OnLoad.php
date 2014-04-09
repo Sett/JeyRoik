@@ -15,6 +15,15 @@ trait Config_Data_OnLoad
             "layouts" => "../application/views/layouts/",
             "jeyroik log" => "../public/log.txt"
         ],
+        
+        "dispatch" => 
+        [
+            "default" => 
+            [
+                "controller" => "index",
+                "action"     => "index"
+            ]
+        ],
 
         "view" =>
         [
