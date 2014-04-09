@@ -27,8 +27,12 @@ trait Dispatcher
 
         $request = isset($request[0]) ? $request[0] : [];// нашли чего-нибудь
 
-        $this->controller = (isset($request[0]) && $request[0]) ? $request[0] : 'index';
-        $this->action     = (isset($request[1]) && $request[1]) ? $request[1] : 'index';
+        $this->controller = (isset($request[0]) && $request[0]) 
+                            ? $request[0] 
+                            : $this->getDefault('dispatch:default:controller', 'is_string');
+        $this->action     = (isset($request[1]) && $request[1]) 
+                            ? $request[1] 
+                            : $this->getDefault('dispatch:default:action', 'is_string');
         
         $this->view = $this->controller . '/' . $this->action;
 
