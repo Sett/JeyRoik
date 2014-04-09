@@ -45,4 +45,19 @@ trait Jeyroik_Base
 
         return $root;
     }
+    
+    /**
+     * @param string $object same as __get($name)
+     * @param string $typeFunc function for validating default value
+     * @return mixed
+     */
+    public function getDefault($object = '', $typeFunc = 'is_string')
+    {
+        $default = $this->$object;
+        
+        if(is_callable($typeFunc) && $typeFunc($default))
+            return $default;
+            
+        return null;
+    }
 }
