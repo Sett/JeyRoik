@@ -58,6 +58,7 @@ trait Jeyroik_Base
         if(is_callable($typeFunc) && $typeFunc($default))
             return $default;
             
+        $this->addError('Missed default value "' . $object . '"', $default);
         return null;
     }
 }
